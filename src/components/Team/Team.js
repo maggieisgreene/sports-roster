@@ -24,12 +24,23 @@ class Team extends React.Component {
       .catch((errFromGetPlayers) => console.error(errFromGetPlayers));
   }
 
+  deletePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => {
+        this.getPlayers();
+      })
+      .catch((errFromDeletePlayer) => console.error(errFromDeletePlayer));
+  }
+
   render() {
     return (
       <div className="Team">
-        <button className="btn btn-light m-3">Add New Player</button>
+        <div className="team-header">
+          <h2>Your Team</h2>
+          <button className="btn btn-light">Add New Player</button>
+        </div>
         <div className="actual-players">
-          { this.state.players.map((player) => <Player key={player.id} player={player} />) }
+          { this.state.players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />) }
         </div>
       </div>
     );
