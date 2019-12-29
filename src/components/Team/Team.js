@@ -41,6 +41,12 @@ class Team extends React.Component {
       .catch((errFromSavePlayer) => console.error(errFromSavePlayer));
   }
 
+  updatePlayer = (playerId, updatedPlayer) => {
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then()
+      .catch((errFromUpdatePlayer) => console.error(errFromUpdatePlayer));
+  }
+
   render() {
     return (
       <div className="Team">
