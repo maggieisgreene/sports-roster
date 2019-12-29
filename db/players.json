@@ -1,0 +1,38 @@
+{
+  "player1": {
+    "name": "Roman Josi",
+    "uid": "CKtZJxEBwuMx1Oi9xOucRmfgJnD2",
+    "position": "Defensemen",
+    "imageUrl": "http://www.hockeydb.com/ihdb/photos/roman-josi-2019-1412.jpg"
+  },
+  "player2": {
+    "name": "Pekka Rinne",
+    "uid": "CKtZJxEBwuMx1Oi9xOucRmfgJnD2",
+    "position": "Goaltender",
+    "imageUrl": "http://www.hockeydb.com/ihdb/photos/pekka-rinne-2019-1412.jpg"
+  },
+  "player3": {
+    "name": "Filip Forsberg",
+    "uid": "CKtZJxEBwuMx1Oi9xOucRmfgJnD2",
+    "position": "Left Wing",
+    "imageUrl": "http://www.hockeydb.com/ihdb/photos/filip-forsberg-2019-1412.jpg"
+  },
+  "player4": {
+    "name": "Viktor Arvidsson",
+    "uid": "CKtZJxEBwuMx1Oi9xOucRmfgJnD2",
+    "position": "Right Wing",
+    "imageUrl": "http://www.hockeydb.com/ihdb/photos/viktor-arvidsson-2019-1412.jpg"
+  },
+  "player5": {
+    "name": "Dan Hamhuis",
+    "uid": "CKtZJxEBwuMx1Oi9xOucRmfgJnD2",
+    "position": "Defensemen",
+    "imageUrl": "http://www.hockeydb.com/ihdb/photos/dan-hamhuis-2019-1412.jpg"
+  },
+  "player6": {
+    "name": "Ryan Johansen",
+    "uid": "CKtZJxEBwuMx1Oi9xOucRmfgJnD2",
+    "position": "Centerman",
+    "imageUrl": "http://www.hockeydb.com/ihdb/photos/ryan-johansen-2019-1412.jpg"
+  }
+}
