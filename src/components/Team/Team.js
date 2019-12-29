@@ -11,6 +11,9 @@ import './Team.scss';
 class Team extends React.Component {
   state = {
     players: [],
+    playerToEdit: {},
+    editMode: false,
+    showPlayerForm: false,
   }
 
   componentDidMount() {
@@ -37,8 +40,34 @@ class Team extends React.Component {
     playerData.savePlayer(newPlayer)
       .then(() => {
         this.getPlayers();
+        this.setState({ showPlayerForm: false });
       })
       .catch((errFromSavePlayer) => console.error(errFromSavePlayer));
+  }
+
+  updatePlayer = (playerId, updatedPlayer) => {
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => {
+        this.getPlayers();
+        this.setState({ editMode: false, showPlayerForm: false });
+      })
+      .catch((errFromUpdatePlayer) => console.error(errFromUpdatePlayer));
+  }
+
+  setEditMode = (editMode) => {
+    this.setState({ editMode, showPlayerForm: true });
+  }
+
+  setShowPlayerForm = () => {
+    this.setState({ showPlayerForm: true });
+  }
+
+  setHidePlayerForm = () => {
+    this.setState({ showPlayerForm: false, editMode: false });
+  }
+
+  setPlayerToEdit = (player) => {
+    this.setState({ playerToEdit: player });
   }
 
   render() {
@@ -46,11 +75,12 @@ class Team extends React.Component {
       <div className="Team">
         <div className="team-header">
           <h2>Your Team</h2>
-          <button className="btn btn-light">Add New Player</button>
+          <button className="btn btn-light" onClick={this.setShowPlayerForm}>Add New Player</button>
         </div>
-          { <PlayerForm savePlayer={this.savePlayer} /> }
+          { this.state.showPlayerForm && <PlayerForm savePlayer={this.savePlayer} updatePlayer={this.updatePlayer}
+          editMode={this.state.editMode} playerToEdit={this.state.playerToEdit} setHidePlayerForm={this.setHidePlayerForm} /> }
         <div className="actual-players">
-          { this.state.players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />) }
+          { this.state.players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} />) }
         </div>
       </div>
     );
