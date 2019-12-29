@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Player from '../Player/Player';
+import PlayerForm from '../PlayerForm/PlayerForm';
 
 import authData from '../../helpers/data/authData';
 import playerData from '../../helpers/data/playerData';
@@ -32,6 +33,14 @@ class Team extends React.Component {
       .catch((errFromDeletePlayer) => console.error(errFromDeletePlayer));
   }
 
+  savePlayer = (newPlayer) => {
+    playerData.savePlayer(newPlayer)
+      .then(() => {
+        this.getPlayers();
+      })
+      .catch((errFromSavePlayer) => console.error(errFromSavePlayer));
+  }
+
   render() {
     return (
       <div className="Team">
@@ -39,6 +48,7 @@ class Team extends React.Component {
           <h2>Your Team</h2>
           <button className="btn btn-light">Add New Player</button>
         </div>
+          { <PlayerForm savePlayer={this.savePlayer} /> }
         <div className="actual-players">
           { this.state.players.map((player) => <Player key={player.id} player={player} deletePlayer={this.deletePlayer} />) }
         </div>
